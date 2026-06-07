@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astropulse — Rate Us</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; min-height: 100vh; padding: 2rem 1rem; }
+    .ap-wrap { max-width: 600px; margin: 0 auto; }
+    .ap-hero { text-align: center; padding: 2rem 1rem 1.5rem; }
+    .ap-logo { font-size: 28px; font-weight: 500; color: #1a1a1a; letter-spacing: -0.5px; }
+    .ap-logo span { color: #7F77DD; }
+    .ap-tagline { font-size: 14px; color: #666; margin-top: 6px; }
+    .ap-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 1.5rem 1.25rem; margin-bottom: 1rem; }
+    .ap-section-label { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+    .ap-bots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .ap-bot-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; padding: 20px 12px 16px;
+      border-radius: 12px; border: 1px solid #e5e5e5;
+      background: #f9f9f9; text-decoration: none; color: #1a1a1a;
+      transition: border-color 0.15s, background 0.15s; cursor: pointer; text-align: center;
+    }
+    .ap-bot-btn:hover { border-color: #7F77DD; background: #EEEDFE; }
+    .ap-bot-icon { width: 56px; height: 56px; border-radius: 50%; background: #534AB7; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ap-bot-icon i { color: white; font-size: 24px; }
+    .ap-bot-name { font-size: 13px; font-weight: 500; color: #1a1a1a; }
+    .ap-bot-sub { font-size: 11px; color: #888; margin-top: 2px; }
+    .ap-website-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; padding: 18px 12px 14px;
+      border-radius: 12px; border: 1px solid #e5e5e5;
+      background: #f9f9f9; text-decoration: none; color: #1a1a1a;
+      width: 100%; transition: border-color 0.15s, background 0.15s; cursor: pointer; text-align: center;
+    }
+    .ap-website-btn:hover { border-color: #1D9E75; background: #E1F5EE; }
+    .ap-web-icon { width: 56px; height: 56px; border-radius: 50%; background: #0F6E56; display: flex; align-items: center; justify-content: center; }
+    .ap-web-icon i { color: white; font-size: 24px; }
+    .ap-ryxastro-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; padding: 18px 12px 14px;
+      border-radius: 12px; border: 1px solid #e5e5e5;
+      background: #f9f9f9; text-decoration: none; color: #1a1a1a;
+      width: 100%; margin-top: 12px;
+      transition: border-color 0.15s, background 0.15s; cursor: pointer; text-align: center;
+    }
+    .ap-ryxastro-btn:hover { border-color: #EF9F27; background: #FAEEDA; }
+    .ap-ryx-icon { width: 56px; height: 56px; border-radius: 50%; background: #BA7517; display: flex; align-items: center; justify-content: center; }
+    .ap-ryx-icon i { color: white; font-size: 24px; }
+    .ap-stars-row { display: flex; justify-content: center; gap: 12px; margin: 16px 0 8px; }
+    .ap-star { font-size: 38px; cursor: pointer; color: #ddd; transition: color 0.12s, transform 0.1s; user-select: none; line-height: 1; }
+    .ap-star.lit { color: #EF9F27; }
+    .ap-star:hover { transform: scale(1.18); }
+    .ap-star-label { text-align: center; font-size: 13px; color: #888; min-height: 20px; margin-bottom: 16px; }
+    .ap-divider { height: 1px; background: #e5e5e5; margin: 1rem 0; }
+    .ap-row-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #888; margin-bottom: 6px; }
+    .ap-idea-box { width: 100%; border: 1px solid #e5e5e5; border-radius: 8px; background: #f9f9f9; color: #1a1a1a; font-family: inherit; font-size: 14px; padding: 10px 12px; resize: vertical; min-height: 80px; outline: none; margin-bottom: 12px; }
+    .ap-idea-box:focus { border-color: #7F77DD; }
+    .ap-name-box { width: 100%; border: 1px solid #e5e5e5; border-radius: 8px; background: #f9f9f9; color: #1a1a1a; font-family: inherit; font-size: 14px; padding: 10px 12px; outline: none; margin-bottom: 12px; }
+    .ap-name-box:focus { border-color: #7F77DD; }
+    .ap-msg-bar { background: #f9f9f9; border: 1px solid #9FE1CB; border-radius: 8px; padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+    .ap-msg-bar i { color: #1D9E75; font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+    .ap-msg-text { font-size: 13px; color: #555; line-height: 1.5; }
+    .ap-msg-text strong { color: #1a1a1a; font-weight: 500; }
+    .ap-submit-btn { width: 100%; padding: 13px; border-radius: 8px; border: none; background: #534AB7; color: white; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity 0.15s, transform 0.1s; }
+    .ap-submit-btn:hover { opacity: 0.9; }
+    .ap-submit-btn:active { transform: scale(0.98); }
+    .ap-submit-btn:disabled { opacity: 0.4; cursor: default; }
+    .ap-loading { display: none; text-align: center; padding: 1rem 0; font-size: 14px; color: #888; }
+    .ap-thanks { text-align: center; padding: 2.5rem 1rem; display: none; }
+    .ap-thanks-icon { font-size: 52px; color: #EF9F27; }
+    .ap-thanks h2 { font-size: 20px; font-weight: 500; color: #1a1a1a; margin: 12px 0 6px; }
+    .ap-thanks p { font-size: 14px; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="ap-wrap">
+
+    <div id="ratingForm">
+      <div class="ap-hero">
+        <div class="ap-logo">Astro<span>pulse</span> ✦</div>
+        <div class="ap-tagline">Your feedback shapes our next project</div>
+      </div>
+
+      <div class="ap-card">
+        <div class="ap-section-label"><i class="ti ti-brand-telegram"></i> Our services</div>
+        <div class="ap-bots">
+          <a class="ap-bot-btn" href="https://t.me/BOOSTASTRO_BOT" target="_blank" rel="noopener">
+            <div class="ap-bot-icon"><i class="ti ti-rocket"></i></div>
+            <div>
+              <div class="ap-bot-name">@BOOSTASTRO_BOT</div>
+              <div class="ap-bot-sub">Telegram bot</div>
+            </div>
+          </a>
+          <a class="ap-bot-btn" href="https://t.me/ASTROVIEWS_BOT" target="_blank" rel="noopener">
+            <div class="ap-bot-icon"><i class="ti ti-telescope"></i></div>
+            <div>
+              <div class="ap-bot-name">@ASTROVIEWS_BOT</div>
+              <div class="ap-bot-sub">Telegram bot</div>
+            </div>
+          </a>
+        </div>
+        <a class="ap-website-btn" href="https://astrropulse.vercel.app" target="_blank" rel="noopener">
+          <div class="ap-web-icon"><i class="ti ti-world"></i></div>
+          <div>
+            <div class="ap-bot-name">astrropulse.vercel.app</div>
+            <div class="ap-bot-sub">Official website</div>
+          </div>
+        </a>
+        <a class="ap-ryxastro-btn" href="https://t.me/RYXASTRO" target="_blank" rel="noopener">
+          <div class="ap-ryx-icon"><i class="ti ti-user"></i></div>
+          <div>
+            <div class="ap-bot-name">@RYXASTRO</div>
+            <div class="ap-bot-sub">Share your project idea</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="ap-card">
+        <div class="ap-section-label"><i class="ti ti-star"></i> Rate Astropulse services</div>
+        <div class="ap-stars-row" id="starsRow">
+          <span class="ap-star" data-val="1" role="button" aria-label="1 star" tabindex="0">★</span>
+          <span class="ap-star" data-val="2" role="button" aria-label="2 stars" tabindex="0">★</span>
+          <span class="ap-star" data-val="3" role="button" aria-label="3 stars" tabindex="0">★</span>
+          <span class="ap-star" data-val="4" role="button" aria-label="4 stars" tabindex="0">★</span>
+          <span class="ap-star" data-val="5" role="button" aria-label="5 stars" tabindex="0">★</span>
+        </div>
+        <div class="ap-star-label" id="starLabel">Tap a star to rate</div>
+        <div class="ap-divider"></div>
+
+        <div class="ap-row-label"><i class="ti ti-user"></i> Your name (optional)</div>
+        <input type="text" class="ap-name-box" id="userName" placeholder="e.g. John Doe" />
+
+        <div class="ap-row-label"><i class="ti ti-bulb"></i> Got a project idea? Share it with us</div>
+        <textarea class="ap-idea-box" id="ideaBox" placeholder="Tell us your idea — we build the next project based on your suggestions!"></textarea>
+
+        <div class="ap-msg-bar">
+          <i class="ti ti-heart"></i>
+          <div class="ap-msg-text"><strong>Your rating inspires us!</strong> We will definitely work on your next project idea. Rate us and we promise to deliver.</div>
+        </div>
+
+        <div class="ap-loading" id="loadingMsg">⏳ Sending your rating...</div>
+        <button class="ap-submit-btn" id="submitBtn" disabled onclick="submitRating()">Submit rating</button>
+      </div>
+    </div>
+
+    <div class="ap-thanks" id="thanksView">
+      <div class="ap-thanks-icon">★</div>
+      <h2>Thank you so much!</h2>
+      <p>Your feedback has been sent to us.<br>We're already excited about your next idea.</p>
+      <div style="margin-top: 1.5rem;">
+        <a class="ap-ryxastro-btn" href="https://t.me/RYXASTRO" target="_blank" rel="noopener" style="max-width:260px; margin: 0 auto;">
+          <div class="ap-ryx-icon"><i class="ti ti-brand-telegram"></i></div>
+          <div>
+            <div class="ap-bot-name">Message @RYXASTRO</div>
+            <div class="ap-bot-sub">Tell us your idea directly</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const labels = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'];
+    let selected = 0;
+    const stars = document.querySelectorAll('.ap-star');
+    const lbl = document.getElementById('starLabel');
+    const btn = document.getElementById('submitBtn');
+
+    function highlight(n) { stars.forEach((s, i) => s.classList.toggle('lit', i < n)); }
+
+    stars.forEach(s => {
+      s.addEventListener('mouseenter', () => highlight(+s.dataset.val));
+      s.addEventListener('mouseleave', () => highlight(selected));
+      s.addEventListener('click', () => {
+        selected = +s.dataset.val;
+        highlight(selected);
+        lbl.textContent = selected === 5 ? 'Excellent! 5 stars ★' : labels[selected];
+        btn.disabled = false;
+      });
+    });
+
+    async function submitRating() {
+      const idea = document.getElementById('ideaBox').value.trim();
+      const name = document.getElementById('userName').value.trim() || 'Anonymous';
+      const starText = '★'.repeat(selected) + '☆'.repeat(5 - selected);
+
+      btn.style.display = 'none';
+      document.getElementById('loadingMsg').style.display = 'block';
+
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('rating', `${selected}/5  ${starText}`);
+      formData.append('idea', idea || 'No idea shared');
+      formData.append('_subject', `⭐ New Astropulse Rating: ${selected}/5 Stars`);
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+
+      try {
+        const res = await fetch('https://formsubmit.co/astropulsesmmpanel@gmail.com', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          document.getElementById('ratingForm').style.display = 'none';
+          document.getElementById('thanksView').style.display = 'block';
+        } else {
+          throw new Error('Failed');
+        }
+      } catch (e) {
+        document.getElementById('loadingMsg').style.display = 'none';
+        btn.style.display = 'block';
+        alert('Something went wrong. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>
